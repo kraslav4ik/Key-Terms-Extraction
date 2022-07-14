@@ -1,30 +1,40 @@
 import nltk
+import os
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from lxml import etree
 from string import punctuation
 from sklearn.feature_extraction.text import TfidfVectorizer
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
 
 class KeyTerm:
 
-    def __init__(self, xml_file):
-        self.xml_file = open(xml_file)
+    def __init__(self, dir_name):
+        self.dir = dir_name
         self.texts = {}
         self.stop_words = set(stopwords.words('english')) | set(punctuation)
         self.lemmatizer = WordNetLemmatizer()
         self.vectorizer = TfidfVectorizer()
 
     def find_texts(self) -> None:
-        root = etree.parse(self.xml_file).getroot()
-        for tag in root.iter():
-            if tag.get('name') == 'head':
-                head = f'{tag.text}:'
+        files = [f for f in os.listdir(self.dir) if os.path.isfile(os.path.join(self.dir, f))]
+        for file in files:
+            if file.endswith(".xml"):
+                with open(os.path.join(self.dir, file)) as xml:
+                    root = etree.parse(xml).getroot()
+                    for tag in root.iter():
+                        if tag.get('name') == 'head':
+                            head = f'{tag.text}:'
+                            continue
+                        if tag.get('name') == 'text':
+                            text = tag.text
+                            self.texts[head] = text
                 continue
-            if tag.get('name') == 'text':
-                text = tag.text
-                self.texts[head] = text
+            with open(os.path.join(self.dir, file)) as txt:
+                self.texts[file] = txt.read()
         return
 
     def find_normal_words(self) -> None:
@@ -48,16 +58,24 @@ class KeyTerm:
                 self.texts[key].append((matrix[i][j], terms[j]))
             print(key)
             sorted_words = [k[1] for k in sorted(self.texts[key], reverse=True)[:5]]
-            print(' '.join(sorted_words))
+            answer = (' '.join(sorted_words))
+            print(answer)
+            wordcloud = WordCloud(width=680, height=680, max_words=10).generate(answer)
+            fig = plt.figure()
+            fig.suptitle(key, fontsize=12, fontweight='bold')
+            plt.imshow(wordcloud, interpolation="bilinear")
+            plt.axis("off")
+            plt.margins(x=0, y=0)
+            plt.show()
         return
-
-    def __del__(self):
-        self.xml_file.close()
+    #
+    # def __del__(self):
+    #     self.xml_file.close()
 
 
 if __name__ == '__main__':
-    file_name = 'news.xml'
-    extractor = KeyTerm(file_name)
+    dir_name = "texts"
+    extractor = KeyTerm(dir_name)
     extractor.find_texts()
     extractor.find_normal_words()
     extractor.find_frequent_words()

@@ -22,7 +22,7 @@ answer = {'Brain Disconnects During Sleep:': ["sleep", "cortex", "consciousness"
 
 class KTETest(StageTest):
     def generate(self):
-        with open('news.xml', 'w') as file:
+        with open('texts/news.xml', 'w') as file:
             file.write(news_text)
         return [TestCase()]
 

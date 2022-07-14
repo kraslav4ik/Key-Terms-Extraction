@@ -58,16 +58,22 @@ class KeyTerm:
                 self.texts[key].append((matrix[i][j], terms[j]))
             print(key)
             sorted_words = [k[1] for k in sorted(self.texts[key], reverse=True)[:5]]
-            answer = (' '.join(sorted_words))
+            words_to_cloud = [k[1] for k in sorted(self.texts[key], reverse=True)[:20]]
+            answer = ' '.join(sorted_words)
             print(answer)
-            wordcloud = WordCloud(width=680, height=680, max_words=10).generate(answer)
-            fig = plt.figure()
-            fig.suptitle(key, fontsize=12, fontweight='bold')
-            plt.imshow(wordcloud, interpolation="bilinear")
-            plt.axis("off")
-            plt.margins(x=0, y=0)
-            plt.show()
+            self.cloud(words_to_cloud, key)
         return
+
+    def cloud(self, word_list, title):
+        words = ' '.join(word_list)
+        wordcloud = WordCloud(width=680, height=680, max_words=100).generate(words)
+        fig = plt.figure()
+        fig.suptitle(title, fontsize=12, fontweight='bold')
+        plt.imshow(wordcloud, interpolation="bilinear")
+        plt.axis("off")
+        plt.margins(x=0, y=0)
+        plt.show()
+
     #
     # def __del__(self):
     #     self.xml_file.close()

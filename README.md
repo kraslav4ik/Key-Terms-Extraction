@@ -5,7 +5,7 @@ Fun project to illustrate most important words in texts. It preprocesses texts, 
 
 Reads text from text or xml-file(example of xml file is in `"./Key Terms Extraction/texts"`).
 
-Preprocessing consist of the following:
+Preprocessing consists of the following:
 * Words Lemmatization
 * Removing punctuation and stop-words
 * Extracting only then nouns
@@ -16,9 +16,17 @@ Text/xml files should be placed in ./Key Terms Extraction/texts directory
 
 Works with: Python 3.8
 
-Launch src and tests from "./Key Terms Extraction"
+Launch Visualizer:
 
-Test is working with "news.xml" which is already in texts dir
+```bash
+News-key-Terms-Visualizer/> python "./Key Terms Extraction/key_terms.py"
+```
+
+Launch tests:
+
+```bash
+News-key-Terms-Visualizer/> python "./Key Terms Extraction/tests/test.py"
+```
 
 Test-files "news.xml", "news.py" and "tests.py" are made by HyperSkill.
 

@@ -1,13 +1,20 @@
-# Key-Terms-Extraction
-Completed HyperSkill Project "Key-Terms-Extraction"
+# News Key Terms Visualizer
+Fun project to illustrate most important words in texts. It preprocesses texts, extracts terms and weights according to the TF-IDF criterion, and creates word-clouds with them.
 
 ![Example](https://github.com/kraslav4ik/Key-Terms-Extraction/blob/main/examples/cloud_example_3.png) 
 
-Programm allows you to extract the most important words from text. It reads text or xml-files from "texts" directory, (in XML files program takes text from tags "head" (to headers) and "text" (for text), in text files - takes name as header and text as text resp.), then lemmatize words in them, removes punctuation and stop-words, then takes only nouns and returns the most important words for each text (to define, which words are the most important programm uses the tf-idf criteria as a weighting factor of the word). The most frequent words are shown in word-clouds (font-size depends on word importance)
+Reads text from text or xml-file(example of xml file is in `"./Key Terms Extraction/texts"`).
+
+Preprocessing consist of the following:
+* Words Lemmatization
+* Removing punctuation and stop-words
+* Extracting only then nouns
+
+The most frequent words are shown in word-clouds (font-size depends on word importance)
 
 Text/xml files should be placed in ./Key Terms Extraction/texts directory
 
-Python 3.8
+Works with: Python 3.8
 
 Launch src and tests from "./Key Terms Extraction"
 

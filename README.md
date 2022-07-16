@@ -10,7 +10,7 @@ Preprocessing consists of the following:
 * Removing punctuation and stop-words
 * Extracting only then nouns
 
-The most frequent words are shown in word-clouds (font-size depends on word importance)
+The most frequent words are shown in word-clouds (font-size depends on word importance: the bigger word is, the more important it is)
 
 Text/xml files should be placed in ./Key Terms Extraction/texts directory
 

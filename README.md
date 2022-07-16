@@ -6,9 +6,9 @@ Fun project to illustrate most important words in texts. It preprocesses texts, 
 Reads text from text or xml-file(example of xml file is in `"./Key Terms Extraction/texts"`).
 
 Preprocessing consists of the following:
-* Words Lemmatization
+* Word Lemmatization
 * Removing punctuation and stop-words
-* Extracting only then nouns
+* Extracting only nouns
 
 The most frequent words are shown in word-clouds (font-size depends on word importance: the bigger word is, the more important it is)
 

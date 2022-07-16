@@ -14,7 +14,11 @@ The most frequent words are shown in word-clouds (font-size depends on word impo
 
 Works with: Python 3.8
 
-Launch Visualizer:
+```bash
+News-key-Terms-Visualizer/> pip install -r requirements.txt
+```
+
+## Launch Visualizer:
 
 ```bash
 News-key-Terms-Visualizer/> python "./Key Terms Extraction/key_terms.py"
@@ -22,7 +26,7 @@ News-key-Terms-Visualizer/> python "./Key Terms Extraction/key_terms.py"
 
 ![Example2](https://github.com/kraslav4ik/Key-Terms-Extraction/blob/main/examples/cloud_example.png)
 
-Launch tests:
+## Launch tests:
 
 ```bash
 News-key-Terms-Visualizer/> python "./Key Terms Extraction/tests/test.py"

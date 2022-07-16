@@ -26,6 +26,10 @@ Launch tests:
 News-key-Terms-Visualizer/> python "./Key Terms Extraction/tests/test.py"
 ```
 
-Test-files "news.xml", "news.py" and "tests.py" are provided by HyperSkill.
+Tests are provided by JetBrains Academy
+
+Project made as a part of JetBrains Academy course
+
+https://hyperskill.org/projects/166?track=2 
 
 ![Example2](https://github.com/kraslav4ik/Key-Terms-Extraction/blob/main/examples/cloud_example.png)

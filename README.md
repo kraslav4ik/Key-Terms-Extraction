@@ -12,8 +12,6 @@ Preprocessing consists of the following:
 
 The most frequent words are shown in word-clouds (font-size depends on word importance: the bigger word is, the more important it is)
 
-Text/xml files should be placed in ./Key Terms Extraction/texts directory
-
 Works with: Python 3.8
 
 Launch Visualizer:
@@ -28,6 +26,6 @@ Launch tests:
 News-key-Terms-Visualizer/> python "./Key Terms Extraction/tests/test.py"
 ```
 
-Test-files "news.xml", "news.py" and "tests.py" are made by HyperSkill.
+Test-files "news.xml", "news.py" and "tests.py" are provided by HyperSkill.
 
 ![Example2](https://github.com/kraslav4ik/Key-Terms-Extraction/blob/main/examples/cloud_example.png)
